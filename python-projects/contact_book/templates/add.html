@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Add Contact{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <p class="page-tag">New Entry</p>
+  <h1 class="page-title">Add Contact</h1>
+</div>
+
+<div class="form-card">
+  <form method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Full name" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" placeholder="+1 234 567 8900" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="email@example.com" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Save Contact</button>
+  </form>
+</div>
+{% endblock %}

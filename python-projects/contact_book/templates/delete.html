@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Delete Contact{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <p class="page-tag">Remove</p>
+  <h1 class="page-title">Delete Contact</h1>
+</div>
+
+<div class="form-card">
+  <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px;">Enter the contact ID to permanently delete them. You can find IDs on the All Contacts page.</p>
+  <form method="POST">
+    <div class="form-group">
+      <label for="id">Contact ID</label>
+      <input type="text" id="id" name="id" placeholder="e.g. 3" required>
+    </div>
+    <button class="btn btn-danger" type="submit">Delete Contact</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}All Contacts{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <p class="page-tag">Overview</p>
+  <h1 class="page-title">All Contacts</h1>
+</div>
+
+<ul class="card-list" style="list-style: none;">
+  {% for contact in contacts %}
+    <li class="contact-card" style="animation-delay: {{ loop.index0 * 0.04 }}s">
+      <div class="contact-info">
+        <div class="name">{{ contact[1] }}</div>
+        <div class="meta">{{ contact[2] }} · {{ contact[3] }}</div>
+      </div>
+      <span class="contact-id">#{{ contact[0] }}</span>
+    </li>
+  {% else %}
+    <p class="empty">No contacts yet. <a href="/add" style="color: var(--accent); text-decoration: none;">Add one →</a></p>
+  {% endfor %}
+</ul>
+{% endblock %}

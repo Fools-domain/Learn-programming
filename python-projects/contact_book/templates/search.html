@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Search Contacts{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <p class="page-tag">Lookup</p>
+  <h1 class="page-title">Search Contacts</h1>
+</div>
+
+<div class="form-card" style="margin-bottom: 32px;">
+  <form method="POST" style="display: flex; gap: 10px;">
+    <input type="text" name="name" placeholder="Search by name…" autofocus style="flex: 1;">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+</div>
+
+{% if results %}
+  <ul class="card-list" style="list-style: none;">
+    {% for contact in results %}
+      <li class="contact-card" style="animation-delay: {{ loop.index0 * 0.04 }}s">
+        <div class="contact-info">
+          <div class="name">{{ contact[1] }}</div>
+          <div class="meta">{{ contact[2] }} · {{ contact[3] }}</div>
+        </div>
+        <span class="contact-id">#{{ contact[0] }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% elif request.method == 'POST' %}
+  <p class="empty">No contacts found.</p>
+{% endif %}
+{% endblock %}
